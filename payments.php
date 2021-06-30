@@ -4,14 +4,6 @@
 // payments through then this setting needs changing to `false`.
 $enableSandbox = true;
 
-// Database settings. Change these for your database configuration.
-$dbConfig = [
-	'host' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'name' => 'create_payments'
-];
-
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
 $paypalConfig = [
@@ -68,9 +60,6 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 } else {
 	// Handle the PayPal response.
 
-	// Create a connection to the database.
-	$db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
-
 	// Assign posted variables to local data array.
 	$data = [
 		'item_name' => $_POST['item_name'],
@@ -87,9 +76,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	// We need to verify the transaction comes from PayPal and check we've not
 	// already processed the transaction before adding the payment to our
 	// database.
-	if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
-		if (addPayment($data) !== false) {
-			// Payment successfully added.
-		}
+	if (verifyTransaction($_POST)) {
+		// Payment successfully added.
 	}
 }
