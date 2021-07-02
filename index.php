@@ -17,6 +17,8 @@
         <input type="hidden" name="last_name" value="Customer's Last Name" />
         <input type="hidden" name="payer_email" value="customer@example.com" />
         <input type="hidden" name="item_number" value="123456" / >
+        <input type="hidden" value="1" name="no_shipping">
+        <input type="hidden" name="return" value="https://www.yoursite.com/checkout_complete.php">
         <input type="submit" name="submit" value="Submit Payment"/>
     </form>
 
