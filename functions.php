@@ -96,6 +96,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 
 	// Add any custom fields for the query string.
 	//$data['custom'] = USERID;
+	$data['no_shipping'] = 1;
 
 	// Build the query string from the data.
 	$queryString = http_build_query($data);
