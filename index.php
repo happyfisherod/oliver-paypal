@@ -18,7 +18,9 @@
         <input type="hidden" name="payer_email" value="customer@example.com" />
         <input type="hidden" name="item_number" value="123456" / >
         <input type="hidden" value="1" name="no_shipping">
+        <input type="hidden" name="notify_url" value="https://www.yoursite.com/my_ipn.php">
         <input type="hidden" name="return" value="https://www.yoursite.com/checkout_complete.php">
+        <input type="hidden" name="cancel_return" value="https://www.yoursite.com/paypal_cancel.php">
         <input type="submit" name="submit" value="Submit Payment"/>
     </form>
 
