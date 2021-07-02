@@ -126,5 +126,6 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	// database.
 	if (verifyTransaction($_POST)) {
 		// Payment successfully added.
+		header('location:' . $paypalConfig['return_url']);
 	}
 }
